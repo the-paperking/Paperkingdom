@@ -1424,7 +1424,7 @@ document.getElementById('reset-cam-btn').addEventListener('click', resetCamera);
     <div class="access-desc">Este modelo requiere un código único.<br>Lo recibiste por email al comprar tu plantilla.</div>
     <div class="access-input-wrap">
       <input class="access-input" id="access-input" type="text" 
-        placeholder="YSH-XXXX-XXXX" maxlength="12"
+        placeholder="YSH-XXXX-XXXX" maxlength="13"
         autocomplete="off" spellcheck="false">
       <button class="access-btn" id="access-btn" onclick="activateCode()">Activar</button>
     </div>
@@ -1474,7 +1474,7 @@ async function activateCode(){
   const error = document.getElementById('access-error');
   const code = input.value.trim().toUpperCase();
 
-  if(!code || code.length < 8){
+  if(!code || code.length < 6){
     error.textContent = 'Ingresa un código válido';
     return;
   }
@@ -1510,7 +1510,7 @@ document.getElementById('access-input').addEventListener('input', function(){
   let val = this.value.replace(/[^A-Z0-9]/gi,'').toUpperCase();
   if(val.length > 3) val = val.slice(0,3) + '-' + val.slice(3);
   if(val.length > 8) val = val.slice(0,8) + '-' + val.slice(8);
-  this.value = val.slice(0,12);
+  this.value = val.slice(0,13);
 });
 
 document.getElementById('access-input').addEventListener('keydown', function(e){
